@@ -1,11 +1,33 @@
+import { useState } from "react";
+import { Inputs } from "../../InputFields/ui/Inputs";
 import styles from "./CurentTasks.module.css";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 export function CurentTasks() {
+  const [tasks,setTasks] = useState([]);//стейт добавленных задач
+  //принимает объект task аругемнтом из инпута
+  const addTasks=(task)=>{
+    setTasks([...tasks, task]);
+  }
   return (
+    <>
+    <Inputs addTask={addTasks}/>
     <ul className={styles.tasks__performeds}>
-      <li className={styles.task__prefomed}>
-        Задача 1
+      {tasks.map((task, index) => (
+      <li key={index} className={styles.task__prefomed}>
+       {task.name}
         <div className={styles.btnTask__state}>
+          <CountdownCircleTimer
+          className={styles.timer}
+            isPlaying
+            duration={task.duration}
+            colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+            colorsTime={[7, 5, 2, 0]}
+            size={30}
+            strokeWidth={3}
+          >
+            {({ remainingTime }) => remainingTime}
+          </CountdownCircleTimer>
           <button className={`${styles.btnTask} ${styles.btnTask__complited}`}>
             <img
               src="../src/assets/img/free-icon-check-mark-5299035.png"
@@ -31,7 +53,8 @@ export function CurentTasks() {
             />
           </button>
         </div>
-      </li>
+      </li>))}
     </ul>
+    </>
   );
 }

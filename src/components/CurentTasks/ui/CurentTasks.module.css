@@ -24,8 +24,12 @@
         background: transparent;
         cursor: pointer;
     }
+    .btnTask__state{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
     /* скрыли кнопку */
     .btnTask__play{
         display: none;
     }
-    
