@@ -1,0 +1,47 @@
+/* 
+проваленные выполненные */
+.tasks__list{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+   
+    
+}
+.tasks__complited{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
+.tasks__failed{
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+   padding: 0;
+}
+.tasks__complited li{
+    width: 100%;
+    background-color: #F6F6f6;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    margin-left: 0px;
+    color: green;
+    text-align: center;
+}
+.tasks__failed li{
+    width: 100%;
+    background-color: #F6F6f6;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    margin-left: 0px;
+    color: red;
+    text-align: center;
+}

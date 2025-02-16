@@ -1,0 +1,47 @@
+.tasks__title{
+    color: rgb(52, 64, 180);
+ }
+ .inputs__tasks{
+     display: flex;
+     flex-direction: column;
+     row-gap: 20px;
+ }
+ .inputs{
+     width: 80%;
+     padding: 6px 0 4px 10px;
+     border: 1px solid #cecece;
+     background-color: #F6F6f6;
+     border-radius: 8px;
+     border: none;
+     outline: none;
+ }
+ 
+ input[type='number'],
+ input[type="number"]:hover,
+ input[type="number"]:focus {
+     appearance: none;
+     -moz-appearance: textfield;
+ }
+ .btn__add_contaner{
+     display: flex;
+     justify-content: start;
+     padding-top: 20px;
+ }
+ .btn__add{
+     text-align: center;
+     transition: 0.5s;
+     background-size: 200% auto;
+     color: white;
+     box-shadow: 0 0 20px #eee;
+     border-radius: 10px;
+     background-image: linear-gradient(to right, #003CC5 0%, #0B63F6 51%, #003CC5 100%);
+     width: 120px;
+     height: 34px;
+     outline: none;
+     border: none;
+     cursor: pointer;
+ }
+ .btn__add:hover{
+     background-position: right center;
+     outline: none;
+ }

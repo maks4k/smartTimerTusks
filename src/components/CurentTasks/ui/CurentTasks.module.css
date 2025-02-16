@@ -1,0 +1,31 @@
+
+/* списки задач */
+.tasks__performeds{
+    padding: 0;
+    }
+    .task__prefomed{
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        width: 80%;
+        padding: 6px 0 4px 10px;
+        border: 1px solid #cecece;
+        background: #F6F6f6;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+    }
+    .btnTask img{
+        width: 16px;
+        height: 16px;
+    }
+    .btnTask{
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+    /* скрыли кнопку */
+    .btnTask__play{
+        display: none;
+    }
+    
