@@ -1,7 +1,7 @@
 import styles from './ComplitedTasks.module.css';
 
 
-export function ComplitedTasks() {
+export function ComplitedTasks({failedTasks}) {
   return (
     <div className={styles.tasks__list}>
     <ul className={styles.tasks__complited}>
@@ -12,8 +12,9 @@ export function ComplitedTasks() {
     </ul>
     <ul className={styles.tasks__failed}>
         <h2>Проваленные задачи</h2>
-        <li>Прочитать книгу</li>
-        <li>Заняться спортом</li>
+        {failedTasks&&failedTasks.map((task,index) => (
+          <li key={index}>{task.name}</li>
+        ))}
     </ul>
 </div>
   )
