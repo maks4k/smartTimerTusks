@@ -2,12 +2,13 @@ import { useState } from "react";
 import { Inputs } from "../../InputFields/ui/Inputs";
 import styles from "./CurentTasks.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import { ComplitedTasks } from "../../ComplitedTasks/ui/ComplitedTasks";
-
+import { FinishedTasks } from "../../FinishedTasks/ui/FinishedTasks";
 
 export function CurentTasks() {
   const [tasks, setTasks] = useState([]); //стейт добавленных задач
   const [isPlaying, setIsPlaying] = useState({}); //стетй для управления кнопками плей и пауза
+  const [completedTasks, setCompletedTasks] = useState([]);
+  const [failedTasks, setFailedTasks] = useState([]);
 
   const handlePause = (index) => {
     setIsPlaying((prev) => ({ ...prev, [index]: false }));
@@ -17,14 +18,29 @@ export function CurentTasks() {
   };
   //принимает объект task аругемнтом из инпута,распоковываем старый масив для образования нового
   //tasks.length-длинна масива всегда индекс новой задачи ,делаем атк что бы при добавление сразу шел таймер
-  const[failedTasks,setFailedTasks]=useState([]);
+
   const addTasks = (task) => {
     setTasks([...tasks, task]);
     setIsPlaying((prev) => ({ ...prev, [tasks.length]: true }));
   };
+  const handlerTaskComplited = (index) => {
+    const task = tasks[index];
+    setTasks((prevTasks) =>
+      prevTasks.filter((_, taskIndex) => taskIndex !== index)
+    );
+    setCompletedTasks((prevCompleted) => [...prevCompleted, task]);
+    setIsPlaying((prev) => {
+      const newPlaying = { ...prev };
+      delete newPlaying[index];
+      return newPlaying;
+    });
+  };
+
   const handlerTaskFailed = (index) => {
     const task = tasks[index];
-    setTasks((prevTasks) => prevTasks.filter((task, taskIndex) => taskIndex !== index));
+    setTasks((prevTasks) =>
+      prevTasks.filter((_, taskIndex) => taskIndex !== index)
+    );
     setFailedTasks((prevFailed) => [...prevFailed, task]);
     setIsPlaying((prev) => {
       const newPlaying = { ...prev };
@@ -34,7 +50,7 @@ export function CurentTasks() {
   };
   const removeTask = (index) => {
     setTasks((prevTask) => {
-      return prevTask.filter((task, taskIndex) => taskIndex != index);
+      return prevTask.filter((_, taskIndex) => taskIndex != index);
     }); //фильтруем задачи по индексу ,если индекст элемента не равен индксу который хотим удалить
     setIsPlaying((prev) => {
       const newPlaying = { ...prev }; //создали копию текущего состояния
@@ -65,7 +81,7 @@ export function CurentTasks() {
               </CountdownCircleTimer>
               <button
                 className={`${styles.btnTask} ${styles.btnTask__complited}`}
-                
+                onClick={() => handlerTaskComplited(index)}
               >
                 <img
                   src="../src/assets/img/free-icon-check-mark-5299035.png"
@@ -109,7 +125,10 @@ export function CurentTasks() {
           </li>
         ))}
       </ul>
-      <ComplitedTasks failedTasks={failedTasks} />
+      <FinishedTasks
+        failedTasks={failedTasks}
+        completedTasks={completedTasks}
+      />
     </>
   );
 }

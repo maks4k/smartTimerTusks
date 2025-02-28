@@ -1,14 +1,15 @@
-import styles from './ComplitedTasks.module.css';
+import styles from './FinishedTasks.module.css';
 
 
-export function ComplitedTasks({failedTasks}) {
+export function FinishedTasks({failedTasks,completedTasks}) {
   return (
     <div className={styles.tasks__list}>
     <ul className={styles.tasks__complited}>
         <h2>Выпоненные задачи
         </h2>
-        <li>Обсудить дела</li>
-        <li>Сходить на работу</li>
+        {completedTasks&&completedTasks.map((task,index) => (
+          <li key={index}>{task.name}</li>
+        ))}
     </ul>
     <ul className={styles.tasks__failed}>
         <h2>Проваленные задачи</h2>
