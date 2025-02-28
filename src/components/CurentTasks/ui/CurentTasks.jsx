@@ -3,6 +3,7 @@ import { Inputs } from "../../InputFields/ui/Inputs";
 import styles from "./CurentTasks.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { FinishedTasks } from "../../FinishedTasks/ui/FinishedTasks";
+import 'animate.css';
 
 export function CurentTasks() {
   const [tasks, setTasks] = useState([]); //стейт добавленных задач
