@@ -1,1 +1,1 @@
-export { FinishedTasks } from "./ui/FinishedTasks";
+export { FinishedTasks } from ".././FinishedTasks";

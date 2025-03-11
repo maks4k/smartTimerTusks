@@ -1,1 +1,1 @@
-export {CurrentTasks} from './ui/CurrentTasks.jsx'
+export {CurrentTasks} from '.././CurrentTasks.jsx'

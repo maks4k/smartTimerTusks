@@ -4,6 +4,11 @@ import styles from "./CurentTasks.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { FinishedTasks } from "../../FinishedTasks/ui/FinishedTasks";
 import 'animate.css';
+import checkMark from '../src/assets/img/free-icon-check-mark-5299035.png';
+import playIcon from '../src/assets/img/free-icon-play-3318660.png';
+import pauseIcon from '../src/assets/img/free-icon-pause-button-3249396.png';
+import closeIcon from '../src/assets/img/free-icon-close-151882.png';
+
 
 export function CurentTasks() {
   const [tasks, setTasks] = useState([]); //стейт добавленных задач
@@ -85,7 +90,7 @@ export function CurentTasks() {
                 onClick={() => handlerTaskComplited(index)}
               >
                 <img
-                  src="../src/assets/img/free-icon-check-mark-5299035.png"
+                  src={checkMark}
                   alt="complited"
                 />
               </button>
@@ -97,7 +102,7 @@ export function CurentTasks() {
                 }} //меняем кнопку
               >
                 <img
-                  src="../src/assets/img/free-icon-play-3318660.png"
+                  src={playIcon}
                   alt="play"
                 />
               </button>
@@ -109,7 +114,7 @@ export function CurentTasks() {
                 }} //меняем кнопку
               >
                 <img
-                  src="../src/assets/img/free-icon-pause-button-3249396.png"
+                  src={pauseIcon}
                   alt="pause"
                 />
               </button>
@@ -118,7 +123,7 @@ export function CurentTasks() {
                 onClick={() => removeTask(index)}
               >
                 <img
-                  src="../src/assets/img/free-icon-close-151882.png"
+                  src={closeIcon}
                   alt="close"
                 />
               </button>
