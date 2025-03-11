@@ -4,10 +4,10 @@ import styles from "./CurentTasks.module.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { FinishedTasks } from "../../FinishedTasks/ui/FinishedTasks";
 import 'animate.css';
-import checkMark from '../../../src/assets/img/free-icon-check-mark-5299035.png';
-import playIcon from '../../../src/assets/img/free-icon-play-3318660.png';
-import pauseIcon from '../../../src/assets/img/free-icon-pause-button-3249396.png';
-import closeIcon from '../../../src/assets/img/free-icon-close-151882.png';
+import checkMark from '../../../assets/img/free-icon-check-mark-5299035.png';
+import playIcon from '../../../assets/img/free-icon-play-3318660.png';
+import pauseIcon from '../../../assets/img/free-icon-pause-button-3249396.png';
+import closeIcon from '../../../assets/img/free-icon-close-151882.png';
 
 
 export function CurentTasks() {
